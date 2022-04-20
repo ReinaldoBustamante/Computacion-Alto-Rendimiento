@@ -1,23 +1,26 @@
 2) Encontar caracteristicas hardware del nodo de computo, explique el comando o tool que permite encontrarlo estando conectado. Averigue:
 
 - Ram, tipo (DDR cuanto) y velocidad.
+    Comando: scontrol show node
     1TB RAM DDR4-3200MHz
 
 - Cantidad de Almacenamiento y tipo
     15 TB NVMe SSD PCle 4.0 (NFS CACHE)
     2 TB NVMe SSD PCle 4.0 System Storage
 
-- Cantidad de nucleos por CPUs
-    64-cores
+- Cantidad de nucleos CPUs
+    Comando: scontrol show node | scontrol show partition cpu
+    128-cores
 
 - Cantidad de CPUs
     2
 
 - Tiene o no hyper-threading (buscar si no conoce el termino)
     Pese a que el hyper-threadring pasa solo en intel, en amd pasa el Simultaneous Multi Threading (SMT) el cual es similar, es decir que un nucleo fisico ahora 
-    funcionara como 2 nucleos logicos.
+    funcionara como 2 nucleos logicos. por lo que podemos decir que el efecto es el mismo, por lo que cumple esto.
 
 - Cantidad de GPUs
+    Comando: scontrol show node nodeGPU01 | srun -p gpu --gres=gpu:A100:1 nvidia-smi 
     8
   - Modelo de GPU
       Nvidia A100
