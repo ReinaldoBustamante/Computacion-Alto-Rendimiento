@@ -1,18 +1,22 @@
 2) Encontar caracteristicas hardware del nodo de computo, explique el comando o tool que permite encontrarlo estando conectado. Averigue:
 
+Para ello debemos posicionarnos en el nodo de computo es decir nodeGPU01 con el comando: srun -p gpu --gress=gpu:A100:1 --pty bash
+
 - Ram, tipo (DDR cuanto) y velocidad.
-    Comando: scontrol show node
-    1TB RAM DDR4-3200MHz
+    Comando: htop
+    1TB RAM DDR4-3200MHz 
 
 - Cantidad de Almacenamiento y tipo
-    15 TB NVMe SSD PCle 4.0 (NFS CACHE)
-    2 TB NVMe SSD PCle 4.0 System Storage
+    Comando: sudo fdisk -l 
+    pedia sudo
+    pagina patagon dice: 15TB cache SDD, 2TB SSD
 
 - Cantidad de nucleos CPUs
-    Comando: scontrol show node | scontrol show partition cpu
+    Comando: lscpu
     128-cores
 
 - Cantidad de CPUs
+    Comando: lscpu
     2
 
 - Tiene o no hyper-threading (buscar si no conoce el termino)
@@ -20,14 +24,14 @@
     funcionara como 2 nucleos logicos. por lo que podemos decir que el efecto es el mismo, por lo que cumple esto.
 
 - Cantidad de GPUs
-    Comando: scontrol show node nodeGPU01 | srun -p gpu --gres=gpu:A100:1 nvidia-smi 
+    Comando: srun -p gpu --gres=gpu:A100:1 nvidia-smi (tiene que estar afuera del nodo de computo) 
     8
   - Modelo de GPU
       Nvidia A100
   - Memoria por GPU
       40GB
   - Nucleos por GPU
-      422 Tensor cores
+      422 Tensor cores (Buscado en internet segun modelo de gpu)
 
 3) En base al nodo DGX del patagon, calcule
   a) Maximo TFLOPS
@@ -44,4 +48,4 @@
         175.5 FP64 TFLOPS
 
   b) Ancho de banda a la memoria RAM: GB/sec
-    1.555 GB/s GPU Memory Bandwidth
+    1.555 GB/s GPU Memory Bandwidth (Segun pagina)
