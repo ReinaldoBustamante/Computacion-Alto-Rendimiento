@@ -1,0 +1,44 @@
+2) Encontar caracteristicas hardware del nodo de computo, explique el comando o tool que permite encontrarlo estando conectado. Averigue:
+
+- Ram, tipo (DDR cuanto) y velocidad.
+    1TB RAM DDR4-3200MHz
+
+- Cantidad de Almacenamiento y tipo
+    15 TB NVMe SSD PCle 4.0 (NFS CACHE)
+    2 TB NVMe SSD PCle 4.0 System Storage
+
+- Cantidad de nucleos por CPUs
+    64-cores
+
+- Cantidad de CPUs
+    2
+
+- Tiene o no hyper-threading (buscar si no conoce el termino)
+    Pese a que el hyper-threadring pasa solo en intel, en amd pasa el Simultaneous Multi Threading (SMT) el cual es similar, es decir que un nucleo fisico ahora 
+    funcionara como 2 nucleos logicos.
+
+- Cantidad de GPUs
+    8
+  - Modelo de GPU
+      Nvidia A100
+  - Memoria por GPU
+      40GB
+  - Nucleos por GPU
+      422 Tensor cores
+
+3) En base al nodo DGX del patagon, calcule
+  a) Maximo TFLOPS
+    - Solo CON CPU
+        9.7 FP64 TFLOPS
+        19.5 FP32 TFLOPS
+
+    - Solo con GPU
+        19.5 FP64 TFLOPS
+        156 FP32 TFLOPS
+
+    - Combinado
+        29.2 FP64 TFLOPS
+        175.5 FP64 TFLOPS
+
+  b) Ancho de banda a la memoria RAM: GB/sec
+    1.555 GB/s GPU Memory Bandwidth
